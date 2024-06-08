@@ -4,14 +4,12 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                git 'https://github.com/varalakshmikonjeti/Docker_task.git'
+                git 'https://github.com/ramyachetty/maven-project-utils.git'
             }
         }
         stage('build') {
             steps {
                 sh 'mvn clean install'
-		sh 'python3 python.py'
-		sh 'shell.sh'
             }
         }
        
