@@ -1,12 +1,19 @@
 pipeline {
     agent any
+
     stages {
-        stage('Build') {
+        stage('checkout') {
             steps {
                 git 'https://github.com/varalakshmikonjeti/Docker_task.git'
-                sh "python3 main.py"
-	        sh "shell.py"
             }
         }
+        stage('build') {
+            steps {
+                sh 'mvn clean install'
+		sh 'python3 python.py'
+		sh 'shell.sh'
+            }
+        }
+       
     }
 }
