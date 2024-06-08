@@ -1,24 +1,15 @@
-pipeline 
-     {
-      agent any
-      }
-      stages
-      {
-       stage('git')
-       {
-        steps
-            {
-              git "https://github.com/varalakshmikonjeti/Docker_task.git"
-              }
-}
-        stage('run')
-        {i
-         steps
-            {
-             sh "shell.sh"
-             sh "python3 python.py"
-             }
+pipeline {
+    agent {
+	    label 's1'
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                git 'https://github.com/varalakshmikonjeti/Docker_task.git'
+                sh "python3 main.py"
+		        sh "shell.py"
+            }
         }
-       
-      }//stages
-      }//pipeline
+    }
+}
