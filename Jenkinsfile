@@ -7,7 +7,7 @@ pipeline {
         sh 'mvn clean install'
       }
     }
-      stage ('python') {
+      stage ('build') {
       steps {
         git 'https://github.com/varalakshmikonjeti/Docker_task.git'
         sh 'python3 python.py'
