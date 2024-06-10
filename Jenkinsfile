@@ -9,6 +9,7 @@ pipeline {
     }
        stage ('shell') {
       steps {
+        git branch: 'shellscript_branch', url:  'https://github.com/varalakshmikonjeti/Docker_task.git'
         sh 'bash shell.sh'
       }
     }
